@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+      UserMailer.order_email(order).deliver_now
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end
@@ -54,11 +55,6 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
-  end
-
-  def render_order(order)
-    order = order.line_items.order_id
-    order.total_cents = order.line_items.total_price_cents
   end
 
   # returns total in cents not dollars (stripe uses cents as well)

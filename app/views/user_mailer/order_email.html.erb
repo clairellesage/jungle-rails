@@ -1,4 +1,16 @@
-<div class="panel panel-default items">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello,</h1>
+    <p>
+      Here is your receipt from Jungle for <%= @order.email %>.<br>
+    </p>
+    <p>Thanks for your order and we hope to see you again!</p>
+
+    <div class="panel panel-default items">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -44,3 +56,5 @@
         </tfoot>
       </table>
     </div>
+  </body>
+</html>
