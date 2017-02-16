@@ -1,11 +1,11 @@
 class Admin::CategoriesController < ApplicationController
 
   def index
-    @categories = Category.order(id: :desc).all
+    @categories = Category.all
   end
 
   def new
-    @product = Category.new
+    @category = Category.new
   end
 
   def create
