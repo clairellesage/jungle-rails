@@ -56,6 +56,11 @@ class OrdersController < ApplicationController
     order
   end
 
+  def render_order(order)
+    order = order.line_items.order_id
+    order.total_cents = order.line_items.total_price_cents
+  end
+
   # returns total in cents not dollars (stripe uses cents as well)
   def cart_total
     total = 0
