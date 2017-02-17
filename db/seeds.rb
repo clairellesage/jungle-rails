@@ -132,5 +132,57 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+puts "Creating Users ..."
+
+user1 = User.create! first_name: 'Claire', last_name: 'Lesage', email: 'c@l.com', password: '123'
+
+# user2 = User.create!
+# user3 = User.create!
+
+
+# :name, :email, :password, :password_confirmation
+
+## REVIEWS 
+puts "Finding or Creating Reviews ..."
+
+prod1 = Product.find_or_create_by! name:'Red Bookshelf'
+prod2 = Product.find_or_create_by! name:'Electric Chair'
+prod3 = Product.find_or_create_by! name:'Optimal Sleeping Bed'
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+prod1.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
+  rating: 7,
+})
+
+prod1.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
+  rating: 2,
+})
+
+prod1.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
+  rating: 3,
+})
+
+prod2.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
+  rating: 5,
+})
+
+prod2.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
+  rating: 8,
+})
 
 puts "DONE!"
