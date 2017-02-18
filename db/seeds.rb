@@ -181,7 +181,7 @@ prod2.reviews.create!({
 
 prod2.reviews.create!({
   user_id: user1.id,
-  description: Faker::Hipster.paragraph(4),
+  description: Faker::Hipster.parag raph(4),
   rating: 8,
 })
 
