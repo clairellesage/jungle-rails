@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 		@product = Product.find params[:product_id]
 	  @review = Review.find params[:id]
 	  @review.product = @product
-	  @review.user = current_user
+	  # @review.user = current_user
 	  if @review.destroy
 	  	redirect_to "/products/#{@product.id}"
 	  else 
