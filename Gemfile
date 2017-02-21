@@ -48,6 +48,8 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.0'
   gem 'database_cleaner', '~> 1.5'
   gem 'sqlite3', '1.3.12'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
