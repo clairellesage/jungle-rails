@@ -30,7 +30,6 @@
  </section> 
 
 <section class="products-show">
-<% if current_user %>
  <div class="row">
     <div class="col-sm-7 col-sm-offset-0">
       <div>
@@ -54,6 +53,7 @@
               </dd>
             <% end %>
       <br><br>
+      <% if current_user %>
       <dd><h4> Leave a Review </h4><dd>
       <%= form_for [@product, @review] do |form| %>
         <% if form.object.errors.any? %>
